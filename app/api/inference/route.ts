@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 async function query(data: Record<string, any>) {
   const response = await fetch(
-    "https://aj7vrur69y7xix4t.us-east-1.aws.endpoints.huggingface.cloud",
+    "https://qhtkhn6dsotx0fyo.eu-west-1.aws.endpoints.huggingface.cloud",
     {
       headers: {
         "Accept": "application/json",
@@ -42,7 +42,9 @@ export async function POST(req: NextRequest) {
         : 'No response';
 
     return NextResponse.json({ text: generated });
-  } catch (error) {
-    return NextResponse.json({ error: error.message || 'An error occurred' }, { status: 500 });
+  } catch (error: unknown) {
+    const message =
+      error instanceof Error ? error.message : 'An unknown error occurred';
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
