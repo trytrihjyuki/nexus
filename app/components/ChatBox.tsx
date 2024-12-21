@@ -1,11 +1,10 @@
-// app/components/ChatBox.tsx
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
 
 export default function ChatBox() {
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState<{role: 'user'|'assistant', content: string}[]>([]);
+  const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; content: string }[]>([]);
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -43,7 +42,7 @@ export default function ChatBox() {
   return (
     <div className="max-w-3xl w-full mx-auto bg-black border border-green-500/50 rounded p-4">
       <h2 className="text-2xl mb-4 text-green-300">Talk to Vicunai</h2>
-      <div 
+      <div
         className="h-64 overflow-y-auto bg-black p-2 border border-green-400/20 rounded mb-4 text-green-200 font-mono text-sm"
         ref={scrollRef}
       >

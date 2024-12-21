@@ -1,6 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-async function query(data: Record<string, any>) {
+interface QueryData {
+  inputs: string;
+  parameters: {
+    max_new_tokens: number;
+    temperature: number;
+  };
+}
+
+async function query(data: QueryData) {
   const response = await fetch(
     "https://qhtkhn6dsotx0fyo.eu-west-1.aws.endpoints.huggingface.cloud",
     {
@@ -17,7 +25,7 @@ async function query(data: Record<string, any>) {
 }
 
 export async function POST(req: NextRequest) {
-  const { prompt } = await req.json();
+  const { prompt } = await req.json() as { prompt?: string };
   if (!prompt) {
     return NextResponse.json({ error: 'No prompt provided.' }, { status: 400 });
   }

@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
+import * as THREE from 'three';
 
 type ModelProps = {
   rotationY: number; // rotation in radians
@@ -16,22 +17,17 @@ export default function Model({ rotationY }: ModelProps) {
         <directionalLight position={[10, 10, 10]} />
         <gridHelper args={[10, 10, '#00ff00', '#00ff00']} />
         <axesHelper args={[5]} />
-        <LlamaModel rotationY={rotationY} />
+        <SnowmanModel rotationY={rotationY} />
       </Canvas>
     </div>
   );
 }
 
-function LlamaModel({ rotationY }: { rotationY: number }) {
+function SnowmanModel({ rotationY }: { rotationY: number }) {
   const group = useRef<THREE.Group>(null);
-  
-  // Attempt to load the model
-  let gltf;
-  try {
-    gltf = useGLTF('/model/snowman.glb') as { scene: THREE.Group };
-  } catch (e) {
-    gltf = { scene: null };
-  }
+
+  // Ensure your model is in /public/model/snowman.glb
+  const gltf = useGLTF('/model/snowman.glb') as any;
 
   useFrame(() => {
     if (group.current) {
@@ -39,8 +35,7 @@ function LlamaModel({ rotationY }: { rotationY: number }) {
     }
   });
 
-  // If no model is loaded, show a box so we know something is rendered
-  if (!gltf.scene) {
+  if (!gltf || !gltf.scene) {
     return (
       <mesh ref={group} scale={[1, 1, 1]}>
         <boxGeometry args={[1, 1, 1]} />
