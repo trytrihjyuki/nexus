@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import ChatBox from './components/ChatBox';

@@ -1,9 +1,13 @@
 'use client';
 
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
-import * as THREE from 'three';
+import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
+
+interface GLTFResult extends GLTF {
+  scene: THREE.Group;
+}
 
 type ModelProps = {
   rotationY: number; // rotation in radians
@@ -13,10 +17,15 @@ export default function Model({ rotationY }: ModelProps) {
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <Canvas camera={{ position: [20, 20, 2] }}>
+        {/* Three.js Lights */}
         <ambientLight intensity={1} />
         <directionalLight position={[10, 10, 10]} />
+
+        {/* Helpers */}
         <gridHelper args={[10, 10, '#00ff00', '#00ff00']} />
         <axesHelper args={[5]} />
+
+        {/* Model */}
         <SnowmanModel rotationY={rotationY} />
       </Canvas>
     </div>
@@ -25,24 +34,13 @@ export default function Model({ rotationY }: ModelProps) {
 
 function SnowmanModel({ rotationY }: { rotationY: number }) {
   const group = useRef<THREE.Group>(null);
-
-  // Ensure your model is in /public/model/snowman.glb
-  const gltf = useGLTF('/model/snowman.glb') as any;
+  const gltf = useGLTF('/model/snowman.glb') as GLTFResult;
 
   useFrame(() => {
     if (group.current) {
       group.current.rotation.y = rotationY;
     }
   });
-
-  if (!gltf || !gltf.scene) {
-    return (
-      <mesh ref={group} scale={[1, 1, 1]}>
-        <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color="red" />
-      </mesh>
-    );
-  }
 
   return (
     <group ref={group}>

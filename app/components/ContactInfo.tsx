@@ -1,4 +1,6 @@
 // app/components/ContactInfo.tsx
+import React from 'react'
+
 export default function ContactInfo() {
     return (
       <div className="mt-10 text-center text-sm text-green-300 space-y-2">

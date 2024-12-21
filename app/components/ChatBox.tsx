@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef} from 'react';
+import React from 'react'
 
 export default function ChatBox() {
   const [input, setInput] = useState('');
