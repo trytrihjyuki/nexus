@@ -1,20 +1,16 @@
-/** @type {import('next').NextConfig} */
-
-const fs = require('fs');
-const path = require('path');
-
+// next.config.js
 module.exports = {
-  webpack: (config) => {
-    const filePath = path.resolve(__dirname, 'node_modules/react-dom/index.js');
-    if (fs.existsSync(filePath)) {
-      fs.appendFileSync(filePath, '\nexport const render = () => {};\n');
-    }
-    return config;
+  eslint: {
+    rules: {
+      'react/no-unknown-property': ['error', {
+        ignore: [
+          'intensity',  // Light intensity
+          'position',   // Position arrays
+          'args',       // Geometry/helper arguments
+          'scale',      // Object scaling
+          'object',     // Primitive objects
+        ],
+      }],
+    },
   },
 };
-
-const nextConfig = {
-  reactStrictMode: true,
-};
-
-module.exports = nextConfig;
