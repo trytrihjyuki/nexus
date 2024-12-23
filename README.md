@@ -102,7 +102,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 For questions, feature requests, or feedback, feel free to reach out:
 
 - **GitHub Issues**: [https://github.com/trytrihjyuki/nexus/issues](https://github.com/trytrihjyuki/nexus/issues)
-- **Email**: [nexus@trytrihjyuki.dev](mailto:nexus@trytrihjyuki.dev)
+- **Email**: [mailto:nexus@nexusishere.dev](mailto:nexus@nexusishere.dev)
 - **Twitter**: [https://x.com/nexusishere](https://x.com/VICUNAI_)
 
 ---
