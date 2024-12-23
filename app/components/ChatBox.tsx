@@ -41,23 +41,23 @@ export default function ChatBox() {
   };
 
   return (
-    <div className="max-w-3xl w-full mx-auto bg-black border border-green-500/50 rounded p-4">
-      <h2 className="text-2xl mb-4 text-green-300">Talk to Vicunai</h2>
+    <div className="max-w-3xl w-full mx-auto bg-black border border-blue-500/50 rounded p-4">
+      <h2 className="text-2xl mb-4 text-blue-300">Decrypt. Discover. Disrupt.</h2>
       <div
-        className="h-64 overflow-y-auto bg-black p-2 border border-green-400/20 rounded mb-4 text-green-200 font-mono text-sm"
+        className="h-64 overflow-y-auto bg-black p-2 border border-blue-400/20 rounded mb-4 text-blue-200 font-mono text-sm"
         ref={scrollRef}
       >
         {messages.map((msg, i) => (
-          <div key={i} className={`mb-2 ${msg.role === 'user' ? 'text-green-300' : 'text-green-200'}`}>
-            <span className="font-bold">{msg.role === 'user' ? 'You: ' : 'Vicunai: '}</span>
+          <div key={i} className={`mb-2 ${msg.role === 'user' ? 'text-blue-300' : 'text-blue-200'}`}>
+            <span className="font-bold">{msg.role === 'user' ? 'You: ' : 'Nexus: '}</span>
             <span>{msg.content}</span>
           </div>
         ))}
-        {loading && <div>Vicunai is thinking...</div>}
+        {loading && <div>Whisper into the void. Nexus is thinking...</div>}
       </div>
       <form onSubmit={handleSubmit} className="flex items-center space-x-2">
         <input
-          className="flex-1 p-2 bg-black border border-green-400 text-green-100 focus:outline-none font-mono"
+          className="flex-1 p-2 bg-black border border-blue-400 text-blue-100 focus:outline-none font-mono"
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
@@ -66,7 +66,7 @@ export default function ChatBox() {
         <button
           type="submit"
           disabled={loading}
-          className="px-4 py-2 bg-green-600 hover:bg-green-500 text-black font-bold rounded"
+          className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-black font-bold rounded"
         >
           {loading ? '...' : 'Send'}
         </button>

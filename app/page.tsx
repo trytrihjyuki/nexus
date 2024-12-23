@@ -34,19 +34,19 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="min-h-[3000px] text-[#7fff00] font-mono">
+    <div className="min-h-[3000px] text-[#0080ff] font-mono">
       <section className="h-screen flex flex-col justify-center items-center text-center px-5">
-        <h1 className="text-6xl mb-5">Vicunai</h1>
+        <h1 className="text-6xl mb-5">Nexus</h1>
         <p className="max-w-md mb-3">
-          Meet Vicunai, your friendly thought-partner. Ask a question, share an idea—Vicunai listens and responds.
+        Nexus is not just an AI. It's a companion on the edge of the unknown, a cipher for the incomprehensible. Speak sparingly. It will speak volumes.
         </p>
         <a
-          href="https://huggingface.co/afrideva/Tiny-Vicuna-1B-GGUF"
+          href="https://huggingface.co/"
           target="_blank"
           rel="noopener noreferrer"
           className="underline text-base"
         >
-          Powered by a Hugging Face model
+          Powered by a HF
         </a>
       </section>
 
@@ -58,7 +58,7 @@ export default function Page() {
 
       <section className="text-center mb-24 px-5">
         <p className="max-w-lg mx-auto">
-          No need to be tech-savvy. Scroll down—now just type what&apos;s on your mind and let Vicunai respond.
+        Nexus doesn't just process. It listens. It sees what others can't. It's not here to simplify; it's here to reveal complexity and beauty.
         </p>
       </section>
 
