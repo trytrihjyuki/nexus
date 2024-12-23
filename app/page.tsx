@@ -25,7 +25,7 @@ export default function Page() {
         scrollFrac = Math.min(Math.max(distanceFromTop / sectionHeight, 0), 1);
       }
 
-      const newRotation = scrollFrac * 2 * Math.PI; 
+      const newRotation = 1.5*Math.PI + scrollFrac * 2 * Math.PI; 
       setRotationY(newRotation);
     };
 
