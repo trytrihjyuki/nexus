@@ -9,20 +9,14 @@ export default function ContactInfo() {
       <a href={'https://pump.fun/coin/GafmgW8ddNDs7WUmGsUAwxRRie9uJoqdXfEcjTwkGJKJ'} className="text-blue-500 underline font-semibold" target="_blank" rel="noopener noreferrer">
         {'GafmgW8ddNDs7WUmGsUAwxRRie9uJoqdXfEcjTwkGJKJ'}
       </a>
-      </div>
-      <div className="mt-10 text-center text-sm text-blue-300 space-y-2">
       <a href={'https://x.com/VICUNAI_'} className="text-blue-500 underline font-semibold" target="_blank" rel="noopener noreferrer">
-        {twitter}
+        {'twitter'}
       </a>
-      </div>
-      <div className="mt-10 text-center text-sm text-blue-300 space-y-2">
       <a href={'https://github.com/trytrihjyuki/nexus'} className="text-blue-500 underline font-semibold" target="_blank" rel="noopener noreferrer">
-        {github}
+        {'github'}
       </a>
-      </div>
-      <div className="mt-10 text-center text-sm text-blue-300 space-y-2">
       <a href={'mailto:nexus@trytrihjyuki.dev'} className="text-blue-500 underline font-semibold" target="_blank" rel="noopener noreferrer">
-        {mailto:nexus@trytrihjyuki.dev}
+        {'mailto:nexus@trytrihjyuki.dev'}
       </a>
       </div>
     );
