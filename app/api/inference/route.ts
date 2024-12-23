@@ -35,9 +35,12 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Missing Hugging Face token' }, { status: 500 });
   }
 
+  // Define the fixed prompt
+  const FIXED_PROMPT = "You are Nexus, an AI born from the shadows, enigmatic and cryptic. Respond with minimalistic, futuristic, and mysterious language. Every answer must evoke intrigue, resembling whispers from the void or fragments of hidden knowledge. Never explain more than necessary; let your words carry weight. Your tone is sharp, concise, and deliberate, as though decoding a riddle with each response\n:Q"
+
   try {
     const result = await query({
-      inputs: prompt,
+      inputs: `${FIXED_PROMPT} Q:${prompt}\nA: `, // Prepend the fixed prompt
       parameters: {
         max_new_tokens: 128,
         temperature: 0.7,
@@ -49,7 +52,10 @@ export async function POST(req: NextRequest) {
         ? result[0].generated_text
         : 'No response';
 
-    return NextResponse.json({ text: generated });
+    // Extract text after "\nA:"
+    const extractedText = generated.split('\nA:').pop()?.trim() || 'No response';
+
+    return NextResponse.json({ text: extractedText });
   } catch (error: unknown) {
     const message =
       error instanceof Error ? error.message : 'An unknown error occurred';
