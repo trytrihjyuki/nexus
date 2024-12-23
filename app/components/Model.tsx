@@ -4,9 +4,10 @@ import React, { useRef } from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
+import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
 
-interface GLTFResult {
-  scene: THREE.Group;
+// Extend GLTF to include nodes and materials
+interface GLTFResult extends GLTF {
   nodes: { [name: string]: THREE.Object3D };
   materials: { [name: string]: THREE.Material };
 }
@@ -31,7 +32,7 @@ export default function Model({ rotationY }: ModelProps) {
 
 function SnowmanModel({ rotationY }: { rotationY: number }) {
   const group = useRef<THREE.Group>(null);
-  const gltf = useGLTF('/model/snowman.glb') as GLTFResult;
+  const gltf = useGLTF('/model/snowman.glb') as unknown as GLTFResult;
 
   useFrame(() => {
     if (group.current) {

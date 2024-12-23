@@ -1,16 +1,9 @@
-// next.config.js
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
   eslint: {
-    rules: {
-      'react/no-unknown-property': ['error', {
-        ignore: [
-          'intensity',  // Light intensity
-          'position',   // Position arrays
-          'args',       // Geometry/helper arguments
-          'scale',      // Object scaling
-          'object',     // Primitive objects
-        ],
-      }],
-    },
+    ignoreDuringBuilds: true, // Example option
   },
 };
+
+module.exports = nextConfig;

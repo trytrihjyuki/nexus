@@ -1,4 +1,6 @@
 // app/components/ContactInfo.tsx
+'use client';
+
 import React from 'react'
 
 export default function ContactInfo() {
